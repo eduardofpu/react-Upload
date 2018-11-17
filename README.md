@@ -2,8 +2,9 @@
 
 
 ```sh
-O objetivo desse projeto e demostrar como realizar upload com previw da imagem e tambem dowload da imagem salva,
-Ao realizar o upload a extensão da foto e realizada de forma automatica.
+   O objetivo desse projeto e demostrar como realizar upload com preview da imagem 
+e tambem o dowload.
+  
 ```
 
 
@@ -29,6 +30,11 @@ $ npm start
   
 
 ```sh
+sudo apt-get update
+sudo apt-get install nodejs
+sudo apt-get install npm
+
+$ npm i -g create-react-app
 $ npm i -g create-react-app
 $ create-react-app nomedoprojeto
 $ npm i axios
@@ -37,3 +43,12 @@ $ npm install
 $ npm start
 
 ```
+
+## 3. Para mudar a versão do node se precisar
+https://woliveiras.com.br/posts/utilizando-versoes-antigas-do-nodejs/
+
+sudo apt-get update
+sudo apt-get install build-essential libssl-dev
+
+$ nvm ls-remote
+$ nvm install  versionescolhida
