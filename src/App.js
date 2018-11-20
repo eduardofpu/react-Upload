@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import img from './img/img.jpeg';
 
 class App extends Component {
 
@@ -54,33 +55,52 @@ class App extends Component {
     })
     .then(res => {
        console.log(res);
+       alert("Upload Realizado");
     });
   }
+
   
   render() {
 
     let {imagePreviewUrl} = this.state;
     let $imagePreview = null;
-    if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} alt="Smiley face" height="150" width="150"></img>);
+
+    if (imagePreviewUrl) {      
+      $imagePreview = (   
+        <div>
+            <h2 id="selected"> Image Selected </h2>     
+           <p>          
+             <img src={imagePreviewUrl} alt="Smiley face" height="350" width="350"></img>
+           </p>
+        </div>
+      );
+
+
     } else {
-      $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+      $imagePreview = (
+      <div className="previewText">
+          <h1 id="titulo">Please select an Image for Preview</h1>
+          <p><img src={img} alt="Smiley face" height="350" width="350"></img></p>
+      </div>
+      );
+
     }
 
+   
     return (
-      <div className="App">  
-      
+
+      <div className="App">         
+      <hr/>
+      <div> {$imagePreview}</div>
+      <br/>
        <input 
        style={{display: 'none'}} type="file" 
        onChange={this.fileSelectHandler}
        ref={fileInput => this.fileInput = fileInput}
        />
-       <button onClick={() => this.fileInput.click()}>Pick File</button>
-       <button onClick={this.fileUploadHandler}>Upload</button>
-       <hr/>
-
-       <div> {$imagePreview}</div>
-
+       <button onClick={() => this.fileInput.click()}><h3 id="button">Pick File</h3></button>
+       <button onClick={this.fileUploadHandler}><h3 id="button">Upload</h3></button>
+      
       </div>
 
       
