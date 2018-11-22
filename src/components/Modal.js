@@ -9,14 +9,12 @@ import img from '../img/img.jpeg';
     super(props);
     this.state = {file: '',imagePreviewUrl: '',image:'',isEnable: false};   
     this.fileUploadHandler=this.fileUploadHandler.bind();
-    
   }
 
   state = {
     selectedFile: null,
     image:null
   }
-
 
   //Preview da imagem quando selecionada
   handleImageChange(e) {
@@ -36,10 +34,9 @@ import img from '../img/img.jpeg';
 
    //se a imagem for cancelada atualiza a pagina
     }else{  
-      console.log("imagem cancelada");        
-      window.location.reload(); 
-    } 
-    
+      console.log("imagem cancelada");   
+       window.location.reload();
+    }     
   }
 
   //Seleciona a imagem
@@ -53,7 +50,7 @@ import img from '../img/img.jpeg';
    }) 
 
   //  Ao selecionar a imagem o botão upload e ativado
-   this.setState({isEnable : true})
+   this.setState({isEnable : true});
   }
 
   //Salva no banco de dados a imagem
@@ -62,7 +59,8 @@ import img from '../img/img.jpeg';
     fd.append('foto', this.state.selectedFile,this.state.selectedFile.name);
      axios.post('http://localhost:8181/foto', fd, {
        onUploadProgress: progressEvent => {
-         console.log('Upload Progress: '+ Math.round(progressEvent.loaded / progressEvent.total*100)+'%')
+                  console.log('Upload Progress: '+ Math.round(progressEvent.loaded / progressEvent.total*100)+'%')
+
        }
       })
       .then(res => {
@@ -74,8 +72,11 @@ import img from '../img/img.jpeg';
   
   render() {
     
-    let {imagePreviewUrl} = this.state;
+    let {imagePreviewUrl} = this.state;   
+   
     let $imagePreview = null;
+    let $isEnablePickFile = null;
+    let $isEnableUpload = null;
    
 
     if (imagePreviewUrl) {      
@@ -87,9 +88,19 @@ import img from '../img/img.jpeg';
            </p>
         </div>
       );
+      $isEnablePickFile = (
+        <button onClick={() => this.fileInput.click()}><h3 id="buttonDisable">Pick File</h3></button>         
+       );
+
+
+      $isEnableUpload = (       
+        <button data-toggle="modal" data-target="#ExemploModalCentralizado" disabled={!this.state.isEnable}>   <h3 id="buttonEnable">Upload</h3></button> 
+             
+        );
 
 
     } else {
+     
       $imagePreview = (
       <div className="previewText">
           <h1 id="titulo">Please select an Image for Preview</h1>
@@ -97,10 +108,21 @@ import img from '../img/img.jpeg';
       </div>
       );
 
+      $isEnablePickFile = (
+        <button onClick={() => this.fileInput.click()}><h3 id="buttonEnable">Pick File</h3></button>       
+       );
+
+      $isEnableUpload = (       
+        <button data-toggle="modal" data-target="#ExemploModalCentralizado" disabled={!this.state.isEnable}>   <h3 id="buttonDisable">Upload</h3></button>   
+         
+       );
+
     }
 
-    return (  
 
+
+    return (  
+     
      
      <div  className="App"> 
 
@@ -112,10 +134,8 @@ import img from '../img/img.jpeg';
        onChange={this.fileSelectHandler}
        ref={fileInput => this.fileInput = fileInput}
        />
-       <button onClick={() => this.fileInput.click()}><h3 id="button">Pick File</h3></button>
-
-       <button data-toggle="modal" data-target="#ExemploModalCentralizado" disabled={!this.state.isEnable}>   <h3 id="button">Upload</h3></button>    
-            
+        {$isEnablePickFile}  
+        {$isEnableUpload}      
             
           <div className="modal fade" id="ExemploModalCentralizado" tabIndex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
@@ -132,6 +152,8 @@ import img from '../img/img.jpeg';
                 <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-dismiss="modal">No</button>
                     <button type="button" className="btn btn-primary"onClick={this.fileUploadHandler}>Yes</button>
+                   
+                    
                 </div>
                 </div>
             </div>

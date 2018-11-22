@@ -81,9 +81,15 @@ background-repeat: no-repeat;
   
 }
 
-#button{
+#buttonEnable{
   text-shadow: 3px 3px 1px rgba(2, 26, 20, 0.774); 
   color: #D3D9DB;
+}
+
+
+#buttonDisable{
+  
+  color: rgb(80, 84, 85);
 }
 
 button{
