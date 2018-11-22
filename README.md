@@ -2,9 +2,10 @@
 
 
 ```sh
-   O objetivo desse projeto e demostrar como realizar upload com preview da imagem 
-e tambem o dowload.
-  
+   O objetivo desse projeto e demostrar como realizar upload com preview da imagem.
+   Para testar o projeto e recomendado utilizar o back end: 
+   https://github.com/eduardofpu/spring-upload   
+
 ```
 
 
