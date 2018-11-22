@@ -89,12 +89,12 @@ import img from '../img/img.jpeg';
         </div>
       );
       $isEnablePickFile = (
-        <button onClick={() => this.fileInput.click()}><h3 id="buttonDisable">Pick File</h3></button>         
+        <button className="btn btn-green" onClick={() => this.fileInput.click()}><h3 id="buttonBis">New File</h3></button>         
        );
 
 
       $isEnableUpload = (       
-        <button data-toggle="modal" data-target="#ExemploModalCentralizado" disabled={!this.state.isEnable}>   <h3 id="buttonEnable">Upload</h3></button> 
+        <button className="btn btn-green" data-toggle="modal" data-target="#ExemploModalCentralizado" disabled={!this.state.isEnable}><h3 id="buttonEnable">Upload</h3></button> 
              
         );
 
@@ -109,11 +109,11 @@ import img from '../img/img.jpeg';
       );
 
       $isEnablePickFile = (
-        <button onClick={() => this.fileInput.click()}><h3 id="buttonEnable">Pick File</h3></button>       
+        <button className="btn btn-green" onClick={() => this.fileInput.click()}><h3 id="buttonEnable">Pick File</h3></button>       
        );
 
       $isEnableUpload = (       
-        <button data-toggle="modal" data-target="#ExemploModalCentralizado" disabled={!this.state.isEnable}>   <h3 id="buttonDisable">Upload</h3></button>   
+        <button className="btn btn-green" data-toggle="modal" data-target="#ExemploModalCentralizado" disabled={!this.state.isEnable}>   <h3 id="buttonDisable">Upload</h3></button>   
          
        );
 

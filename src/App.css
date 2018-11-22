@@ -87,6 +87,12 @@ background-repeat: no-repeat;
 }
 
 
+#buttonBis{
+  text-shadow: 3px 3px 1px rgba(2, 26, 20, 0.774); 
+  color: rgb(43, 182, 73);
+}
+
+
 #buttonDisable{
   
   color: rgb(80, 84, 85);
@@ -96,17 +102,42 @@ button{
   width:200px;
   height:50px;
   border-radius: 10px;
-  background-color:#666;
-  
+  background-color:#666;  
+  border-top-width: 0;
 }
 
-#button:hover{
+
+#buttonEnable:hover{
   color: greenyellow;
-  background-color: rgb(189, 202, 201);
+}
+
+.btn{
+  font-family: arial;
+  font-size:14px;
+  font-weight:700;
+  text-transform: uppercase;
+  border:none;
+  padding:10px;
+  cursor: pointer;
+  display:inline-block;
+  text-decoration: none;
+}
+
+.btn-green{
+  background:#666;
+  color:rgb(109, 104, 104);
+  box-shadow:0 7px 0 #497269;
+}
+
+.btn-green:hover{
+  background:#666;
+  box-shadow:0 7px 0 #003f00;
+}
+.btn-green:active{
+  position:relative;
+  top:5px;
+  box-shadow:none;
 }
 
 
-h3:focus-visible{
-  background-color:red;
-  
-}
+
